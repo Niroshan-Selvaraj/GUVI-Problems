@@ -5,11 +5,14 @@ int base = Integer.parseInt(scan.nextLine());
 int power = Integer.parseInt(scan.nextLine());
 int total = 1;
 int result = 0;
+if(power<0){
+System.out.println("Enter the power value in positive integer and retry");
+}else{
 for(int i=1;i<=power;i++){
 total = base*total;
 }
-result = base>0?total:base;
+result = power>0?total:base;
 System.out.println(result);
 }
-
+}
 }
