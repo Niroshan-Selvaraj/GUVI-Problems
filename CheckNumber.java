@@ -3,10 +3,9 @@ import java.util.*;*/
 
 public class CheckNumber{
 public static void main(String args[]){
-int a = 5;
-int b = 5;
-int c = a+b;
-System.out.println(c);
-
+Scanner scan  = new Scanner(System.in);
+	int num = Integer.parseInt(scan.nextLine());
+	String result = num>0?"Positive":num==0?"Zero":"Negative";
+	System.out.println(result);
 }
 }
