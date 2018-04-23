@@ -1,7 +1,7 @@
 /*import java.lang.*;
 import java.util.*;*/
 
-public class Sum{
+public class CheckNumber{
 public static void main(String args[]){
 int a = 5;
 int b = 5;
