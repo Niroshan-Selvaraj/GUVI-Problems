@@ -5,7 +5,7 @@ int n = Integer.parseInt(input.nextLine());
 int number = n;
 int resultSum = 0;
 int digit = 0;
-if(number<10001){
+if(number>0 && number<10001){
 while(number>0){
 digit = number%10;
 number = number/10;
