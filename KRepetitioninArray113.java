@@ -1,4 +1,4 @@
-public class KRepetitioninArray{
+public class KRepetitioninArray113{
 public static void main(String args[]){
 Scanner input = new Scanner(System.in);
 int count = 0;
