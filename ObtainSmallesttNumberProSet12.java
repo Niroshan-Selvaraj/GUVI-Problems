@@ -39,7 +39,7 @@ public class ObtainSmallesttNumberProSet12{
 		for (String str : list) {
 			temp = "";
 			for (int i = 0; i < numberStr.length(); i++) {
-				if(!(str.contains(i+"")))
+				if((str.contains(i+"")))
 				temp += numberStr.charAt(i);
 			}
 			list1.add(Integer.parseInt(temp));
