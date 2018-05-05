@@ -19,11 +19,10 @@ public class ObtainSmallesttNumberProSet12{
 		int endNum = Integer.parseInt(end);
 		String pattern = "";
 
-		// Finding smallest to highest number indexes like 01234,012345,035,124
-		// etc..
-		int len = numberStr.length() - removeDigit;
+		//Finding smallest to highest number indexes like 01234,012345,035,124 etc..
+		int len =  numberStr.length() - removeDigit;
 		for (int i = startNum; i <= endNum; i++) {
-			if ((i + "").length() < len) {
+			if ((i + "").length() <len) {
 				pattern = "0" + i + "";
 			} else
 				pattern = i + "";
@@ -34,14 +33,14 @@ public class ObtainSmallesttNumberProSet12{
 
 			}
 		}
-
-		// form a string by joining indexes (like 01234 to 4321 if the actual
-		// string is 432156)
+		
+//form a string by joining indexes (like 01234 to 4321 if the actual string is 432156)
 		String temp = "";
 		for (String str : list) {
 			temp = "";
-			for (int i = 0; i < str.length(); i++) {
-				temp += numberStr.charAt(Integer.parseInt(str.charAt(i) + ""));
+			for (int i = 0; i < numberStr.length(); i++) {
+				if(!(str.contains(i+"")))
+				temp += numberStr.charAt(i);
 			}
 			list1.add(Integer.parseInt(temp));
 		}
@@ -84,6 +83,9 @@ public class ObtainSmallesttNumberProSet12{
 		}
 
 		return start + "-" + end;
+
+	}
+
 
 	}
 }
