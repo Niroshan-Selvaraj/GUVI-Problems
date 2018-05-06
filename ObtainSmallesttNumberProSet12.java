@@ -1,6 +1,6 @@
 public class ObtainSmallesttNumberProSet12{
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+				Scanner input = new Scanner(System.in);
 
 		List<String> list = new ArrayList<String>();
 		List<Integer> list1 = new ArrayList<Integer>();
@@ -8,46 +8,54 @@ public class ObtainSmallesttNumberProSet12{
 		String numberStr = input.nextLine();
 		int removeDigit = input.nextInt();
 
-		String expr = formRegularExpressionString(numberStr, removeDigit);
+		if (removeDigit > 0 && removeDigit < numberStr.length()) {
+			String expr = formRegularExpressionString(numberStr, removeDigit);
 
-		String splitBigAndSmall = findBigAndSmallPossibleNumber(numberStr,
-				removeDigit);
-		String start = splitBigAndSmall.split("-")[0];
-		String end = splitBigAndSmall.split("-")[1];
+			String splitBigAndSmall = findBigAndSmallPossibleNumber(numberStr,
+					removeDigit);
+			String start = splitBigAndSmall.split("-")[0];
+			String end = splitBigAndSmall.split("-")[1];
 
-		int startNum = Integer.parseInt(start);
-		int endNum = Integer.parseInt(end);
-		String pattern = "";
+			int startNum = Integer.parseInt(start);
+			int endNum = Integer.parseInt(end);
+			String pattern = "";
 
-		//Finding smallest to highest number indexes like 01234,012345,035,124 etc..
-		int len =  numberStr.length() - removeDigit;
-		for (int i = startNum; i <= endNum; i++) {
-			if ((i + "").length() <len) {
-				pattern = "0" + i + "";
-			} else
-				pattern = i + "";
+			// Finding smallest to highest number indexes like
+			// 01234,012345,035,124 etc..
+			int len = numberStr.length() - removeDigit;
+			for (int i = startNum; i <= endNum; i++) {
+				if ((i + "").length() < len) {
+					pattern = "0" + i + "";
+				} else
+					pattern = i + "";
 
-			if (pattern.matches(expr)) {
+				if (pattern.matches(expr)) {
 
-				list.add(pattern);
+					list.add(pattern);
 
+				}
 			}
-		}
-		
-//form a string by joining indexes (like 01234 to 4321 if the actual string is 432156)
-		String temp = "";
-		for (String str : list) {
-			temp = "";
-			for (int i = 0; i < numberStr.length(); i++) {
-				if((str.contains(i+"")))
-				temp += numberStr.charAt(i);
+
+			// form a string by joining indexes (like 01234 to 4321 if the
+			// actual string is 432156)
+			String temp = "";
+			for (String str : list) {
+				temp = "";
+				for (int i = 0; i < numberStr.length(); i++) {
+					if ((str.contains(i + "")))
+						temp += numberStr.charAt(i);
+				}
+				list1.add(Integer.parseInt(temp));
 			}
-			list1.add(Integer.parseInt(temp));
+
+			Collections.sort(list1);
+			System.out.println(list1.get(0));
+
+		} else if (removeDigit == numberStr.length()) {
+			System.out.println("");
+		} else {
+			System.out.println(numberStr);
 		}
-
-		Collections.sort(list1);
-		System.out.println(list1.get(0));
-
 	}
 
 	public static String formRegularExpressionString(String numberStr,
@@ -83,9 +91,6 @@ public class ObtainSmallesttNumberProSet12{
 		}
 
 		return start + "-" + end;
-
-	}
-
 
 	}
 }
